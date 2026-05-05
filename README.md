@@ -4,9 +4,7 @@ Ansible playbooks for automating a fresh Fedora workstation setup.
 
 ## TODO
 
-- [ ] rpmfusion
 - [ ] test
-
 
 ```bash
 sudo dnf install ansible -y

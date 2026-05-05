@@ -1,0 +1,16 @@
+---
+- name: Install Polish language packages
+  hosts: localhost
+  become: yes
+
+  tasks:
+    - name: Install Polish language support packages
+      dnf:
+        name:
+          - langpacks-pl
+          - hunspell-pl
+          - hyphen-pl
+          - mythes-pl
+          - glibc-langpack-pl
+          - libreoffice-langpack-pl
+        state: present

@@ -1,0 +1,34 @@
+---
+- name: Silence power plug/unplug sounds
+  hosts: localhost
+  become: yes
+
+  # ffmpeg -f lavfi -i anullsrc=r=44100:cl=mono -t 0.001 -c:a libvorbis /usr/share/sounds/freedesktop/stereo/silent.oga
+  # sudo ln -sf /usr/share/sounds/freedesktop/stereo/silent.oga /usr/share/sounds/freedesktop/stereo/power-plug.oga
+  # sudo ln -sf /usr/share/sounds/freedesktop/stereo/silent.oga /usr/share/sounds/freedesktop/stereo/power-unplug.oga
+  tasks:
+    - name: Install ffmpeg
+      dnf:
+        name: ffmpeg
+        state: present
+
+    - name: Generate silent OGA file
+      shell: >
+        ffmpeg -f lavfi -i anullsrc=r=44100:cl=mono -t 0.001 -c:a libvorbis
+        /usr/share/sounds/freedesktop/stereo/silent.oga
+      args:
+        creates: /usr/share/sounds/freedesktop/stereo/silent.oga
+
+    - name: Symlink power-plug sound to silent
+      file:
+        src: /usr/share/sounds/freedesktop/stereo/silent.oga
+        dest: /usr/share/sounds/freedesktop/stereo/power-plug.oga
+        state: link
+        force: yes
+
+    - name: Symlink power-unplug sound to silent
+      file:
+        src: /usr/share/sounds/freedesktop/stereo/silent.oga
+        dest: /usr/share/sounds/freedesktop/stereo/power-unplug.oga
+        state: link
+        force: yes

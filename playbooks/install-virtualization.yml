@@ -1,0 +1,25 @@
+---
+- name: Install Virtualization
+  hosts: localhost
+  become: yes
+
+  tasks:
+    - name: Install virtualization group
+      dnf:
+        name:
+          - "@virtualization"
+        state: present
+
+    - name: Enable and start libvirtd
+    # sudo systemctl enable --now libvirtd
+      systemd:
+        name: libvirtd
+        enabled: yes
+        state: started
+
+    - name: Add current user to libvirt group
+    # sudo usermod -aG libvirt $(whoami)
+      user:
+        name: "{{ lookup('env', 'SUDO_USER') }}" # sudo ansible localhost -m debug -a "msg={{ lookup('env', 'SUDO_USER') }}"
+        groups: libvirt
+        append: yes

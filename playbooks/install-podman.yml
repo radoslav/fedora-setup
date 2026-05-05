@@ -1,0 +1,21 @@
+---
+- name: Install Podman
+  hosts: localhost
+  become: yes
+
+  tasks:
+    - name: Install podman and podman-compose
+      dnf:
+        name:
+          - podman
+          - podman-compose
+        state: present
+
+    - name: Enable and start podman.socket for current user
+    # systemctl --user enable --now podman.socket
+      systemd:
+        name: podman.socket
+        enabled: yes
+        state: started
+        scope: user
+      become: no # run as regular user to enable user-level socket

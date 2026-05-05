@@ -1,0 +1,13 @@
+---
+- name: Install Bluetooth codecs
+  hosts: localhost
+  become: yes
+
+  tasks:
+    - name: Install additional Bluetooth codec packages
+      dnf:
+        name:
+          - libfreeaptx
+          - libldac
+          - fdk-aac
+        state: present

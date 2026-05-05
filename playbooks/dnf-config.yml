@@ -1,0 +1,33 @@
+---
+- name: Configure DNF settings
+  hosts: localhost
+  become: yes
+
+  tasks:
+    - name: Set fastestmirror
+      ini_file:
+        path: /etc/dnf/dnf.conf
+        section: main
+        option: fastestmirror
+        value: "True"
+
+    - name: Set max_parallel_downloads
+      ini_file:
+        path: /etc/dnf/dnf.conf
+        section: main
+        option: max_parallel_downloads
+        value: "5"
+
+    # - name: Set defaultyes
+    #   ini_file:
+    #     path: /etc/dnf/dnf.conf
+    #     section: main
+    #     option: defaultyes
+    #     value: "True"
+
+    # - name: Set keepcache
+    #   ini_file:
+    #     path: /etc/dnf/dnf.conf
+    #     section: main
+    #     option: keepcache
+    #     value: "True"

@@ -1,0 +1,10 @@
+---
+- import_playbook: playbooks/dnf-config.yml
+- import_playbook: playbooks/install-packages.yml
+- import_playbook: playbooks/install-polish.yml
+- import_playbook: playbooks/install-podman.yml
+- import_playbook: playbooks/install-virtualization.yml
+- import_playbook: playbooks/install-bluetooth-codecs.yml
+- import_playbook: playbooks/install-syncthing.yml
+- import_playbook: playbooks/install-mise.yml
+- import_playbook: playbooks/silence-power-sounds.yml

@@ -1,0 +1,16 @@
+---
+- name: Install mise
+  hosts: localhost
+  become: no
+
+  tasks:
+    - name: Download and run mise installer
+      shell: curl https://mise.run | sh
+      args:
+        creates: "{{ lookup('env', 'HOME') }}/.local/bin/mise" # makes the task idempotent; the install script is skipped if mise is already installed
+
+    - name: Activate mise in .bashrc
+      lineinfile:
+        path: "{{ lookup('env', 'HOME') }}/.bashrc"
+        line: 'eval "$(~/.local/bin/mise activate bash)"'
+        state: present

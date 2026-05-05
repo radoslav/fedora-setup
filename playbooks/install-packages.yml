@@ -1,0 +1,19 @@
+---
+- name: Install packages
+  hosts: localhost
+  become: yes
+
+  tasks:
+    - name: Install packages
+      dnf:
+        name:
+          - google-chrome-stable
+          - vim
+          - git
+          - vlc
+          - transmission
+          - "@c-development" 
+          - "@development-libs" 
+          - "@development-tools" 
+          - "libyaml-devel"
+        state: present

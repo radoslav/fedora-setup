@@ -10,5 +10,6 @@ Ansible playbooks for automating a fresh Fedora workstation setup.
 sudo dnf install ansible -y
 sudo ansible-playbook setup.yml
 # addons
+./firmware_updates.sh
 ./mise.sh
 ```

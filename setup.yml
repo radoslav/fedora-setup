@@ -8,5 +8,6 @@
 - import_playbook: playbooks/install-bluetooth-codecs.yml
 - import_playbook: playbooks/install-syncthing.yml
 - import_playbook: playbooks/install-mise.yml
+- import_playbook: playbooks/install-vscode.yml
 - import_playbook: playbooks/silence-power-sounds.yml
 - import_playbook: playbooks/add-user-to-dialout-group.yml

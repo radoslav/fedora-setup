@@ -1,0 +1,11 @@
+---
+- name: Add sudo user to dialout group
+  hosts: localhost
+  become: yes
+
+  tasks:
+    - name: Add current user to dialout group
+      user:
+        name: "{{ lookup('env', 'SUDO_USER') }}"
+        groups: dialout
+        append: yes

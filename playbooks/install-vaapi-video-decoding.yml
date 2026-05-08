@@ -1,0 +1,13 @@
+---
+- name: Install VA-API video decoding dependencies
+  hosts: localhost
+  become: yes
+
+  tasks:
+    - name: Install ffmpeg and VA-API packages
+      dnf:
+        name:
+          - ffmpeg-libs
+          - libva
+          - libva-utils
+        state: present

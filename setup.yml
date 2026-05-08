@@ -6,6 +6,7 @@
 - import_playbook: playbooks/install-podman.yml
 - import_playbook: playbooks/install-virtualization.yml
 - import_playbook: playbooks/install-bluetooth-codecs.yml
+- import_playbook: playbooks/install-vaapi-video-decoding.yml
 - import_playbook: playbooks/install-syncthing.yml
 - import_playbook: playbooks/install-mise.yml
 - import_playbook: playbooks/install-vscode.yml

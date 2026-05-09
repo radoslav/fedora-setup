@@ -1,0 +1,22 @@
+---
+- name: Install Mesa Vulkan drivers freeworld
+  hosts: localhost
+  become: yes
+
+  tasks:
+    - name: Check whether mesa-vulkan-drivers is installed
+      command: rpm -q mesa-vulkan-drivers
+      register: mesa_vulkan_drivers_check
+      changed_when: false
+      failed_when: false
+
+    - name: Swap mesa-vulkan-drivers with mesa-vulkan-drivers-freeworld
+      command: dnf swap mesa-vulkan-drivers mesa-vulkan-drivers-freeworld --allowerasing -y
+      when: mesa_vulkan_drivers_check.rc == 0
+
+    - name: Install Mesa Vulkan drivers freeworld packages
+      dnf:
+        name:
+          - mesa-vulkan-drivers-freeworld
+        state: present
+      when: mesa_vulkan_drivers_check.rc != 0

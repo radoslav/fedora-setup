@@ -1,0 +1,23 @@
+---
+- name: Install Mesa VA drivers for AMD graphics
+  hosts: localhost
+  become: yes
+
+  tasks:
+    - name: Check whether mesa-va-drivers is installed
+      command: rpm -q mesa-va-drivers
+      register: mesa_va_drivers_check
+      changed_when: false
+      failed_when: false
+
+    - name: Swap mesa-va-drivers with mesa-va-drivers-freeworld
+      command: dnf swap mesa-va-drivers mesa-va-drivers-freeworld --allowerasing -y
+      when: mesa_va_drivers_check.rc == 0
+
+    - name: Install Mesa VA driver freeworld packages
+      dnf:
+        name:
+          - mesa-va-drivers-freeworld
+          - mesa-va-drivers-freeworld.i686
+        state: present
+      when: mesa_va_drivers_check.rc != 0

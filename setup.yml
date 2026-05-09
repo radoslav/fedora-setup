@@ -7,7 +7,8 @@
 - import_playbook: playbooks/install-virtualization.yml
 - import_playbook: playbooks/install-bluetooth-codecs.yml
 - import_playbook: playbooks/install-vaapi-video-decoding.yml
-# - import_playbook: playbooks/install-AMD-graphics-mesa-va-drivers.yml
+- import_playbook: playbooks/install-mesa-va-drivers-AMD-graphics.yml
+- import_playbook: playbooks/install-mesa-vulkan-drivers-freeworld.yml
 - import_playbook: playbooks/install-syncthing.yml
 - import_playbook: playbooks/install-mise.yml
 - import_playbook: playbooks/install-vscode.yml

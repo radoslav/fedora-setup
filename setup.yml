@@ -1,6 +1,7 @@
 ---
 - import_playbook: playbooks/dnf-config.yml
 - import_playbook: playbooks/install-rpm-fusion.yml
+- import_playbook: playbooks/install-firefox-openh264.yml
 - import_playbook: playbooks/install-packages.yml
 - import_playbook: playbooks/install-polish.yml
 - import_playbook: playbooks/install-podman.yml

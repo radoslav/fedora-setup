@@ -24,6 +24,7 @@ sudo ansible-playbook setup.yml
 │   ├── configure-grub-timeout.yml
 │   ├── dnf-config.yml
 │   ├── install-bluetooth-codecs.yml
+│   ├── install-firefox-openh264.yml
 │   ├── install-mesa-va-drivers-AMD-graphics.yml
 │   ├── install-mesa-vulkan-drivers-freeworld.yml
 │   ├── install-mise.yml

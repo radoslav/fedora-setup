@@ -16,4 +16,8 @@
           - "@development-libs" 
           - "@development-tools" 
           - "libyaml-devel"
+          - unzip 
+          - p7zip
+          - p7zip-plugins
+          - unrar
         state: present

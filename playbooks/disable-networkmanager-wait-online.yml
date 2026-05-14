@@ -1,0 +1,10 @@
+---
+- name: Disable NetworkManager-wait-online.service
+  hosts: localhost
+  become: true
+  tasks:
+    - name: Disable NetworkManager-wait-online.service
+      ansible.builtin.systemd:
+        name: NetworkManager-wait-online.service
+        enabled: no
+        state: stopped

@@ -17,3 +17,4 @@
 - import_playbook: playbooks/add-user-to-dialout-group.yml
 - import_playbook: playbooks/configure-grub-timeout.yml
 - import_playbook: playbooks/disable-networkmanager-wait-online.yml
+- import_playbook: playbooks/disable-gnome-software-autostart.yml

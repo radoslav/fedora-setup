@@ -1,0 +1,9 @@
+---
+- name: Disable Gnome Software from Startup Apps
+  hosts: localhost
+  become: true
+  tasks:
+    - name: Remove Gnome Software autostart desktop file
+      ansible.builtin.file:
+        path: /etc/xdg/autostart/org.gnome.Software.desktop
+        state: absent
